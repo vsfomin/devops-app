@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class=logo></div>
+
+<a href={{ url_for('index', month="January") }} class="btn">January</a>
+<a href={{ url_for('index', month="February") }} class="btn">February</a>
+<a href={{ url_for('index', month="March") }} class="btn">March</a>
+<a href={{ url_for('index', month="April") }} class="btn">April</a>
+<a href={{ url_for('index', month="May") }} class="btn">May</a>
+<a href={{ url_for('index', month="June") }} class="btn">June</a>
+<a href={{ url_for('index', month="July") }} class="btn">July</a>
+<a href={{ url_for('index', month="August") }} class="btn">August</a>
+<a href={{ url_for('index', month="September") }} class="btn">September</a>
+<a href={{ url_for('index', month="November") }} class="btn">November</a>
+<a href={{ url_for('index', month="December") }} class="btn">December</a>
+
+
+<h3>Games in {{ month }}</h3>
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Away Team</th>
+    <th>Home Team</th>
+    <th>Scores</th>
+  </tr>
+  {% for line in games %}
+  <tr>
+    <td>{{ line[0] }}</td>
+    <td>{{ line[1] }}</td>
+    <td>{{ line[2] }}</td>
+    <td>{{ line[3] }}</td>
+  </tr>
+ {% endfor %}
+</table>
+
+<h3>Top TimeOnIce players </h3>
+<table>
+    <tr>
+      <th>Date</th>
+      <th>Name</th>
+      <th>TimeOnIce</th>
+    </tr>
+    {% for line in players %}
+    <tr>
+      <td>{{ line[0] }}</td>
+      <td>{{ line[1] }}</td>
+      <td>{{ line[2] }}</td>
+    </tr>
+   {% endfor %}
+  </table>
+
+</body>
+</html>
